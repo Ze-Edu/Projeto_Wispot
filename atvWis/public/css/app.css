@@ -1,0 +1,36 @@
+/* Background */
+.bgMain {  
+    background-image: url(../img/backCalendario.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+    .estilo {
+        -webkit-appearance: none;
+        background: #d3d3d3;
+        outline: none;
+        max-width: 200px;
+        height: 20px;
+        border-radius: 9px;   
+    }
+    .estilo::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%; 
+    
+        background: #838383;
+        cursor: pointer;
+    }
+    
+    .estilo::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%; 
+    
+        background: #616161;
+        cursor: pointer;
+    }
+    body {
+        font-family: 'Nunito', sans-serif;
+    }
