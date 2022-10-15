@@ -2,8 +2,8 @@
 .bgMain {  
     background-image: url(../img/backCalendario.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
-    }
+    background-size: cover;    
+}
     .estilo {
         -webkit-appearance: none;
         background: #d3d3d3;

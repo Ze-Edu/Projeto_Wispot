@@ -4,13 +4,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
+
   <title>Agendar Esporte</title>
 </head>
 
 <body class="bgMain">
-  <div class="bg-light">
-    <div class="container">
+  <div class="container form-control border-warning mx-auto mt-5 mb-5" style="width: 1000px;">
       <h1 class="alert alert-dark text-center" style="color: #000;"><a href="/home"><img src="/img/left.png" style="width: 40px;"></a>
         Criação de atividade esportiva</h1>
 
@@ -50,7 +50,6 @@
         </div>
 
         <fieldset class="row mb-3">
-          <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
           <div class="col-sm-10">
             <div class="form-check">
               <input class="form-check-input" type="radio" name="gridRadios" id="norepeat" value="option1">
@@ -66,7 +65,6 @@
             </div>
           </div>
         </fieldset>
-
         <div class="row mb-3 " id="intervalo">
           <div class="col-sm-10 offset-sm-2">
             <div class="form-check">
@@ -76,10 +74,14 @@
             </div>
           </div>
         </div>
-
-        <button type="submit" class="btn btn-outline-dark">Salvar</button>
+        <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-outline-dark btn-block">Salvar</button>
+        </div>
+        
       </form>
+
     </div>
+    
   </div>
   <!-- Link bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">

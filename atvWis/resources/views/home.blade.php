@@ -6,12 +6,17 @@
         <meta charset="utf-8">
         <meta name="csrf-token" content="{{ csrf_token() }}" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
 
         <link rel="shortcut icon" href="/img/calendario.png" type="image/x-icon">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/fullcalendar.css') }}">
+        <script src="../../public/js/fullcalendar.js"></script>
         
 
         <!-- Fonts -->
@@ -19,7 +24,7 @@
     </head>
     <body class="bgMain">
 
-        <div class="container">
+        <div class="container form-control border-warning mx-1000 mt-5 mb-5">
            <h1 class="alert alert-dark text-center">Agenda de Atividades Esportivas</h1>
 
             <!-- Inicio calendario -->
@@ -27,8 +32,9 @@
             <div id="calendar"></div>
 
             <!-- Fim calendario -->
-
-           <a href="/atv"><button class="btn btn-outline-dark">Agendar</button></a>
+            <div class="d-flex flex-row-reverse">
+           <a href="/atv"><button class="btn btn-outline-dark p-2 mt-1">Adicionar atividade</button></a>
+           </div>
         </div>
 
         <!-- Link bootstrap -->
@@ -36,6 +42,63 @@
         rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
         <script>
+            // Code goes here
+$(document).ready(function() {
+
+// page is now ready, initialize the calendar...
+
+var calendar = $('#calendar').fullCalendar({
+  // put your options and callbacks here
+  header: {
+    left: 'prev,next today',
+    center: 'title',
+    right: 'year,month,basicWeek,basicDay'
+
+  },
+  timezone: 'local',
+  height: "auto",
+  selectable: true,
+  dragabble: true,
+  defaultView: 'year',
+  yearColumns: 3,
+
+  durationEditable: true,
+  bootstrap: false,
+
+  events: [{
+    title: "Some event",
+    start: new Date('2017-1-10'),
+    end: new Date('2017-1-20'),
+    id: 1,
+    allDay: true,
+    editable: true,
+    eventDurationEditable: true,
+  }, ],
+  select: function(start, end, allDay) {
+    var title = prompt('Event Title:');
+    if (title) {
+      var event = {
+        title: title,
+        start: start.clone(),
+        end: end.clone(),
+        allDay: true,
+        editable: true,
+        eventDurationEditable: true,
+        eventStartEditable: true,
+        color: 'yellow',
+      };
+
+
+      calendar.fullCalendar('renderEvent', event, true);
+    }
+  },
+})
+});
+        </script>
+        
+        <!-- <script>
+            
+    
             $(document).ready(function (){
                 $.ajaxSetup({
                     headers:{
@@ -138,7 +201,7 @@
                     }
                 });
             });
-        </script>
+        </script> -->
 
         <!-- Link com script.js -->
         <script src="{{ asset('js/script.js') }}"></script>
