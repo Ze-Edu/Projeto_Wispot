@@ -26,7 +26,7 @@
         </div>
     </div>
 
-    {{-- Scripts --}}
+    <!-- {{-- Scripts --}} -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
@@ -56,7 +56,7 @@
                 selectable: true,
                 selectHelper: true,
                 select: function(event_start, event_end, allDay) {
-                    var event_name = prompt('Event Name:');
+                    var event_name = prompt('Nome do evento:');
                     if (event_name) {
                         var event_start = $.fullCalendar.formatDate(event_start, "Y-MM-DD HH:mm:ss");
                         var event_end = $.fullCalendar.formatDate(event_end, "Y-MM-DD HH:mm:ss");

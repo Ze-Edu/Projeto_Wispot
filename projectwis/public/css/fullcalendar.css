@@ -36,7 +36,7 @@ body .fc { /* extra precedence to overcome jqui */
 }
 
 .fc-unthemed .fc-popover {
-	background-color: #fff;
+	background-color: rgb(0, 0, 0);
 }
 
 .fc-unthemed .fc-divider,
@@ -50,7 +50,7 @@ body .fc { /* extra precedence to overcome jqui */
 }
 
 .fc-unthemed td.fc-today {
-	background: #fcf8e3;
+	background: #000000;
 }
 
 .fc-highlight { /* when user is selecting cells */
@@ -65,7 +65,7 @@ body .fc { /* extra precedence to overcome jqui */
 
 .fc-nonbusiness { /* default look for non-business-hours areas */
 	/* will inherit .fc-bgevent's styles */
-	background: #d7d7d7;
+	background: #ffffff;
 }
 
 .fc-unthemed .fc-disabled-day {
