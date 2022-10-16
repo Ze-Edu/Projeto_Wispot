@@ -6,7 +6,8 @@ class CalenderController extends Controller
 {
     public function index(Request $request)
     {
-        if($request->ajax()) {  
+        if($request->ajax()) { 
+            
             $data = CrudEvents::whereDate('start', '>=', $request->start)
                 ->whereDate('end',   '<=', $request->end)
                 ->get(['id', 'title', 'start', 'end']);
@@ -17,13 +18,18 @@ class CalenderController extends Controller
  
     public function calendarEvents(Request $request)
     {
- 
+        $color=null;
+            if($request->title == 'title'){
+                $color = '#F4D03F';
+            } 
         switch ($request->type) {
+            
            case 'create':
               $event = CrudEvents::create([
                   'title' => $request->title,
                   'start' => $request->start,
                   'end' => $request->end,
+                  'color' => $color
               ]);
  
               return response()->json($event);
