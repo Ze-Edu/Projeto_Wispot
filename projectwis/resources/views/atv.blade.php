@@ -1,24 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
-  <title>Agendar Esporte</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create Fullcalender CRUD Events in Laravel</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 
 <body class="bgMain">
   <div class="container form-control border-warning mx-auto mt-5 mb-5" style="width: 1000px;">
-      <h1 class="alert alert-dark text-center" style="color: #000;"><a href="/home"><img src="/img/left.png" style="width: 40px;"></a>
+      <h1 class="alert alert-dark text-center" style="color: #000;"><a href="/"><img src="/img/left.png" style="width: 40px;"></a>
         Criação de atividade esportiva</h1>
 
-      <form>
+
         <div class="row mb-3">
           <label for="inputNome" class="col-sm-2 col-form-label">Nome</label><br>
           <div class="col-sm-10">
@@ -73,10 +73,10 @@
           </div>
         </div><br>
         <div class="d-grid gap-2">
-        <button type="submit" id="salvar" class="btn btn-outline-dark btn-block">Salvar</button>
+        <button id="salvar" class="btn btn-outline-dark btn-block">Salvar</button>
         </div>
         
-      </form>
+
 
     </div>
     
@@ -86,6 +86,7 @@
 
   <!-- Link com script.js -->
   <script src="{{ asset('js/script.js') }}"></script>
+  <script src="{{ asset('js/ajax.js') }}"></script>
 
 </body>
 

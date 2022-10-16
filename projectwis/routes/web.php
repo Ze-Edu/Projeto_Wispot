@@ -15,4 +15,3 @@ Route::get('calendar-event', [CalenderController::class, 'index']);
 Route::post('calendar-crud-ajax', [CalenderController::class, 'calendarEvents']);
 
 Route::view('atv','atv');
-Route::view('home','home');
