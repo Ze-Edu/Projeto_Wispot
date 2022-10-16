@@ -12,7 +12,7 @@ class CalenderController extends Controller
                 ->get(['id', 'title', 'start', 'end','backgroundColor','textColor']);
             return response()->json($data);
         }
-        return view('welcome');
+        return view('home');
     }
  
     public function calendarEvents(Request $request)
