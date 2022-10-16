@@ -73,7 +73,7 @@
                             },
                             type: "POST",
                             success: function (data) {
-                                displayMessage("Event created.");
+                                displayMessage("Atividade criada!");
                                 calendar.fullCalendar('renderEvent', {
                                     id: data.id,
                                     title: event_name,
@@ -103,12 +103,12 @@
                         },
                         type: "POST",
                         success: function (response) {
-                            displayMessage("Event updated");
+                            displayMessage("Atividade atualizada");
                         }
                     });
                 },
                 eventClick: function (event) {
-                    var eventDelete = confirm("Are you sure?");
+                    var eventDelete = confirm("Deseja remover essa atividade?");
                     if (eventDelete) {
                         $.ajax({
                             type: "POST",
