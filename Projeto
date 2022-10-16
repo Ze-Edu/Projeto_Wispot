@@ -24,10 +24,10 @@ ________________________________________________________________________________
 --------Banco de dados--------
 Tabelas
 
-->atividadedb
-	->atvexercicio
+->db
+	->crud_events
 
-	-idinsercao int(11)
+	-id int
 	-nome varchar(255)
 	-descrição varchar(255)
 	-data date
