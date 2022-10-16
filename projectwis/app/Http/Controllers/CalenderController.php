@@ -6,10 +6,10 @@ class CalenderController extends Controller
 {
     public function index(Request $request)
     {
-        if($request->ajax()) {  
+        if($request->ajax()) {
             $data = CrudEvents::whereDate('start', '>=', $request->start)
                 ->whereDate('end',   '<=', $request->end)
-                ->get(['id', 'title', 'start', 'end']);
+                ->get(['id', 'title', 'start', 'end','backgroundColor','textColor']);
             return response()->json($data);
         }
         return view('welcome');
@@ -28,7 +28,7 @@ class CalenderController extends Controller
  
               return response()->json($event);
              break;
-  
+
            case 'edit':
               $event = CrudEvents::find($request->id)->update([
                   'title' => $request->title,
@@ -38,13 +38,13 @@ class CalenderController extends Controller
  
               return response()->json($event);
              break;
-  
+
            case 'delete':
               $event = CrudEvents::find($request->id)->delete();
-  
+
               return response()->json($event);
              break;
-             
+
            default:
              # ...
              break;

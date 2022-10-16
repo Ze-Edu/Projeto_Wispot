@@ -5,6 +5,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
   <title>Agendar Esporte</title>
 </head>
@@ -29,23 +33,16 @@
         </div>
 
         <div class="row mb-3">
-          <label for="inputNome" class="col-sm-2 col-form-label">Data</label>
-          <div class="col-sm-10">
-            <input type="date" class="form-control" id="inputDate">
-          </div>
-        </div>
-
-        <div class="row mb-3">
           <label for="inputNome" class="col-sm-2 col-form-label">De:</label>
           <div class="col-sm-10">
-            <input type="time" class="form-control" id="inputDate">
+            <input type="datetime-local" class="form-control" id="inputDateini">
           </div>
         </div>
 
         <div class="row mb-3">
           <label for="inputNome" class="col-sm-2 col-form-label">Até:</label>
           <div class="col-sm-10">
-            <input type="time" class="form-control" id="inputDate">
+            <input type="datetime-local" class="form-control" id="inputDateter">
           </div>
         </div>
 
@@ -74,9 +71,9 @@
               <input id="valor" class="estilo" type="range" min="0" max="16" value="0">
             </div>
           </div>
-        </div>
+        </div><br>
         <div class="d-grid gap-2">
-        <button type="submit" class="btn btn-outline-dark btn-block">Salvar</button>
+        <button type="submit" id="salvar" class="btn btn-outline-dark btn-block">Salvar</button>
         </div>
         
       </form>
