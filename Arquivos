@@ -1,0 +1,36 @@
+
+____________________________________________________________________________________________________________________
+Campos de preenchimento do usuario
+
+- Nome.
+- Descrição.
+- data.
+- horario de inicio e fim.
+- Recorrência da atividade(semanalmente, mensalmente...).
+____________________________________________________________________________________________________________________
+Funcionalidades
+
+- Os horarios livres deverão aparecer em verde no calendario/agenda.
+- Os horarios ocupados deverão aparecer em amarelo com o decorrer do horario de inicio e fim.
+
+
+____________________________________________________________________________________________________________________
+Funcionalidades - Se possivel implementar
+
+- Bloquear criação de atividade em horario que a unidade esteja fechada
+- Dias que a unidade esteja fechada, esteja de outra cor o dia para simbolizar a indisponibilidade.
+____________________________________________________________________________________________________________________
+
+--------Banco de dados--------
+Tabelas
+
+->atividadedb
+	->atvexercicio
+
+	-idinsercao int(11)
+	-nome varchar(255)
+	-descrição varchar(255)
+	-data date
+	-horaini varchar(255)
+	-horater varchar(255)
+	-recorrencia int null
