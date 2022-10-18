@@ -65,4 +65,4 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## Caso de uso - Cadastro de atividades esportivas
 
-![drawio_docker drawio](https://user-images.githubusercontent.com/75598729/196318530-77350c9d-88df-43dc-9dec-ecf6291f3975.png)
+![Diagrama sem nome drawio](https://user-images.githubusercontent.com/75598729/196459538-fd44b852-aee2-478d-b155-5e2127dc2a55.svg)
