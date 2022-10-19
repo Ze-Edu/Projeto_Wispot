@@ -13,7 +13,9 @@
 </head>
 
 <body class="bgMain">
-    <div class="container form-control border-warning mx-1000 mt-5 mb-5">
+
+
+    <div class="container form-control border-dark mx-1000 mt-5 mb-5">
         <h1 class="alert alert-dark text-center">Agenda de Atividades Esportivas</h1>
 
         <!-- Inicio calendario -->
@@ -107,23 +109,28 @@
                         }
                     });
                 },
-                eventClick: function (event) {
-                    var eventDelete = confirm("Deseja remover essa atividade?");
-                    if (eventDelete) {
-                        $.ajax({
-                            type: "POST",
-                            url: SITEURL + '/calendar-crud-ajax',
-                            data: {
-                                id: event.id,
-                                type: 'delete'
-                            },
-                            success: function (response) {
-                                calendar.fullCalendar('removeEvents', event.id);
-                                displayMessage("Event removed");
-                            }
-                        });
-                    }
+
+                eventClick: function(event){
+                    $("modalCalendar").modal('show')
                 }
+
+                // eventClick: function (event) {
+                //     var eventDelete = confirm("Deseja remover essa atividade?");
+                //     if (eventDelete) {
+                //         $.ajax({
+                //             type: "POST",
+                //             url: SITEURL + '/calendar-crud-ajax',
+                //             data: {
+                //                 id: event.id,
+                //                 type: 'delete'
+                //             },
+                //             success: function (response) {
+                //                 calendar.fullCalendar('removeEvents', event.id);
+                //                 displayMessage("Event removed");
+                //             }
+                //         });
+                //     }
+                // }
                 
             });
                 
@@ -135,9 +142,11 @@
             toastr.success(message, 'Event');            
         }
         
+        
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Link bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
 
     <!-- Link com script.js -->
     <script src="{{ asset('js/script.js') }}"></script>

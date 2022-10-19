@@ -11,12 +11,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/app.css">
 </head>
 
 <body class="bgMain">
-  <div class="container form-control border-warning mx-auto mt-5 mb-5" style="width: 1000px;">
-      <h1 class="alert alert-dark text-center" style="color: #000;"><a href="/"><img src="/img/left.png" style="width: 40px;"></a>
-        Criação de atividade esportiva</h1>
+  <div class="container form-control border-darkmx-auto mt-5 mb-5" style="width: 1000px;">
+      <h1 class="alert alert-dark text-center" style="color: #000;">
+        Criação de atividade esportiva<a href="/"><svg xmlns="http://www.w3.org/2000/svg" id="exit" height="45" style="color: black" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/></svg></a></h1>
 
 
         <div class="row mb-3">
