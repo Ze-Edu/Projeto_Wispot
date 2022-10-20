@@ -19,7 +19,20 @@
         <h1 class="alert alert-dark text-center">Agenda de Atividades Esportivas</h1>
 
         <!-- Inicio calendario -->
+        <div class="container border border-secondary rounded-3">
+            <div id="descriweb">
+                <h5>descrição</h5>
+                <div class="d-flex flex-row mb-2">
+                    <div class="p-2" id="bol_agendado"></div>
+                    <h6 id="h6a">Agendado</h6>
 
+                    <div class="p-2" id="bol_livre"></div>
+                    <h6 id="h6h">Horários livres</h6>
+                </div>
+                <h6>Pressione na atividade para ver a descrição ou exclui-la.</h6>
+            </div>
+        </div>
+        <br>
         <div id="full_calendar_events"></div>
 
         <!-- Fim calendario -->
@@ -33,24 +46,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    
-    <script >
-        
-        $(document).ready(function () {
+
+    <script>
+        var description = document.getElementById("descri");
+
+        $(document).ready(function() {
             var SITEURL = "{{ url('/') }}";
             var evento = SITEURL + "/calendar-event";
-             
+
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-               var calendar = $('#full_calendar_events').fullCalendar({
+            var calendar = $('#full_calendar_events').fullCalendar({
                 editable: true,
                 editable: true,
-                events:evento,
+                events: evento,
                 displayEventTime: true,
-                eventRender: function (event, element, view) {
+                eventRender: function(event, element, view) {
                     if (event.allDay === 'true') {
                         event.allDay = true;
                     } else {
@@ -59,9 +73,9 @@
                 },
                 selectable: true,
                 selectHelper: true,
-                select: function (event_start, event_end, allDay) {
+                select: function(event_start, event_end, allDay) {
                     var event_name = prompt('Event Name:');
-                    
+
                     if (event_name) {
                         var event_start = $.fullCalendar.formatDate(event_start, "Y-MM-DD HH:mm:ss");
                         var event_end = $.fullCalendar.formatDate(event_end, "Y-MM-DD HH:mm:ss");
@@ -74,15 +88,15 @@
                                 type: 'create'
                             },
                             type: "POST",
-                            success: function (data) {
+                            success: function(data) {
                                 displayMessage("Atividade criada!");
                                 calendar.fullCalendar('renderEvent', {
                                     id: data.id,
                                     title: event_name,
                                     start: event_start,
                                     end: event_end,
-                                    backgroundColor:'#ffff0085',
-                                    textColor:'black',
+                                    backgroundColor: '#ffff0085',
+                                    textColor: 'black',
                                     allDay: allDay
                                 }, true);
                                 calendar.fullCalendar('unselect');
@@ -90,7 +104,7 @@
                         });
                     }
                 },
-                eventDrop: function (event, delta) {
+                eventDrop: function(event, delta) {
                     console.log(delta)
                     var event_start = $.fullCalendar.formatDate(event.start, "Y-MM-DD");
                     var event_end = $.fullCalendar.formatDate(event.end, "Y-MM-DD");
@@ -104,45 +118,40 @@
                             type: 'edit'
                         },
                         type: "POST",
-                        success: function (response) {
+                        success: function(response) {
                             displayMessage("Atividade atualizada");
                         }
                     });
                 },
 
-                eventClick: function(event){
-                    $("modalCalendar").modal('show')
+
+                eventClick: function(event) {
+                    var eventDelete = confirm("Descrição" + description)
+                    if (eventDelete) {
+                        $.ajax({
+                            type: "POST",
+                            url: SITEURL + '/calendar-crud-ajax',
+                            data: {
+                                id: event.id,
+                                type: 'delete'
+                            },
+                            success: function(response) {
+                                calendar.fullCalendar('removeEvents', event.id);
+                                displayMessage("Evento excluido com sucesso!");
+                            }
+                        });
+                    }
                 }
 
-                // eventClick: function (event) {
-                //     var eventDelete = confirm("Deseja remover essa atividade?");
-                //     if (eventDelete) {
-                //         $.ajax({
-                //             type: "POST",
-                //             url: SITEURL + '/calendar-crud-ajax',
-                //             data: {
-                //                 id: event.id,
-                //                 type: 'delete'
-                //             },
-                //             success: function (response) {
-                //                 calendar.fullCalendar('removeEvents', event.id);
-                //                 displayMessage("Event removed");
-                //             }
-                //         });
-                //     }
-                // }
-                
             });
-                
+
         });
-       
-        
-        
+
+
+
         function displayMessage(message) {
-            toastr.success(message, 'Event');            
+            toastr.success(message, 'Event');
         }
-        
-        
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Link bootstrap -->

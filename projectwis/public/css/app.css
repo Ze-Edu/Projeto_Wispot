@@ -12,3 +12,23 @@
     #exit{
     margin-left: 300px;
     }
+
+    #bol_agendado{
+        width: 25px;
+        height: 25px;
+        background-color: #ffff0085;
+        border-radius: 50%;
+        border: 1px solid rgb(27, 0, 179);
+    } 
+    #bol_livre{
+        width: 25px;
+        height: 25px;
+        border: 1px solid black;
+        border-radius: 50%;
+    } 
+    #h6a{
+        margin: 4px;
+    }
+    #h6h{
+        margin: 4px;
+    }
