@@ -35,13 +35,16 @@
         </div>
         <br>
         <!-- Mostra atividade -->
-        <div class="container border border-secondary rounded-3">
+        <div class="container border border-secondary rounded-3" style="display: none;">
             <div id="descriweb">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+                <br>
+                <div><h6 id="h6Nome">Nome: </h6></div>
+                <div><h6 id="h6Descri">Descrição: </h6></div>
+                <div><h6 id="h6Dataini">Data-inicio:</h6></div>
+                <div><h6 id="h6Datafin">Data-final:</h6></div>
+                
+                <div><button class="btn btn-outline-danger p-2 mt-1">Apagar atividade</button></div>
+                <br>
             </div>
         </div>
         <!-- FIm - Mostra atividade -->
