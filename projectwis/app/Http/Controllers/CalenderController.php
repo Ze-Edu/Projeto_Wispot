@@ -9,7 +9,7 @@ class CalenderController extends Controller
         if($request->ajax()) {
             $data = CrudEvents::whereDate('start', '>=', $request->start)
                 ->whereDate('end',   '<=', $request->end)
-                ->get(['id', 'title', 'start', 'end','backgroundColor','textColor']);
+                ->get(['id', 'title', 'start', 'end','backgroundColor','textColor','descricao']);
             return response()->json($data);
         }
         return view('home');
@@ -24,6 +24,7 @@ class CalenderController extends Controller
                   'title' => $request->title,
                   'start' => $request->start,
                   'end' => $request->end,
+                  'descricao' => $request->descricao,
               ]);
  
               return response()->json($event);

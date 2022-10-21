@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Agenda de exercicios</title>
+    <link rel="icon" href="img/calendario.png">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
@@ -29,9 +30,21 @@
                     <div class="p-2" id="bol_livre"></div>
                     <h6 id="h6h">Horários livres</h6>
                 </div>
-                <h6>Pressione na atividade para ver a descrição ou exclui-la.</h6>
+                <h6 id="descri">Pressione na atividade para ver a descrição ou exclui-la.</h6>
             </div>
         </div>
+        <br>
+        <!-- Mostra atividade -->
+        <div class="container border border-secondary rounded-3">
+            <div id="descriweb">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <!-- FIm - Mostra atividade -->
         <br>
         <div id="full_calendar_events"></div>
 
@@ -48,7 +61,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     <script>
-        var description = document.getElementById("descri");
+
 
         $(document).ready(function() {
             var SITEURL = "{{ url('/') }}";
@@ -126,7 +139,7 @@
 
 
                 eventClick: function(event) {
-                    var eventDelete = confirm("Descrição" + description)
+                    var eventDelete = confirm("Nome: " + event.title)
                     if (eventDelete) {
                         $.ajax({
                             type: "POST",

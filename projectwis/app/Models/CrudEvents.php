@@ -9,6 +9,7 @@ class CrudEvents extends Model
     protected $fillable = [
         'title', 
         'start', 
-        'end'
+        'end',
+        'descricao'
     ];    
 }

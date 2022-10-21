@@ -18,6 +18,7 @@ $.ajaxSetup({
         title: nome.value,
         start: inputde.value.replace("T"," "),
         end: inputate.value.replace("T"," "),
+        descricao: descricao.value,
         type: 'create'
     }, 
     type: "POST"})
