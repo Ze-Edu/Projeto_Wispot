@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    
 
 <head>
     <meta charset="utf-8">
@@ -35,25 +36,26 @@
         </div>
         <br>
         <!-- Mostra atividade -->
-        <div class="container border border-secondary rounded-3" style="display: none;">
+        <div class="container border border-secondary rounded-3 text-center alert alert-light " id="mostraAtividade" style="display: none;width: 700px">
             <div id="descriweb">
                 <br>
+                <h2 class="alert alert-dark text-center">Atividade esportiva</h2>
                 <div><h6 id="h6Nome">Nome: </h6></div>
                 <div><h6 id="h6Descri">Descrição: </h6></div>
                 <div><h6 id="h6Dataini">Data-inicio:</h6></div>
                 <div><h6 id="h6Datafin">Data-final:</h6></div>
                 
-                <div><button class="btn btn-outline-danger p-2 mt-1">Apagar atividade</button></div>
+                <div><button id="Excluir" data-id class="btn btn-outline-danger p-2 mt-1">Apagar atividade</button></div>
                 <br>
             </div>
         </div>
         <!-- FIm - Mostra atividade -->
         <br>
         <div id="full_calendar_events"></div>
-
+        <br>
         <!-- Fim calendario -->
-        <div class="d-flex flex-row-reverse">
-            <a href="/atv"><button class="btn btn-outline-dark p-2 mt-1">Adicionar atividade</button></a>
+        <div class="text-center">
+            <a href="/atv"><button class="btn btn-dark btn-lg">Adicionar atividade</button></a>
         </div>
     </div>
 
@@ -89,37 +91,7 @@
                 },
                 selectable: true,
                 selectHelper: true,
-                select: function(event_start, event_end, allDay) {
-                    var event_name = prompt('Event Name:');
-
-                    if (event_name) {
-                        var event_start = $.fullCalendar.formatDate(event_start, "Y-MM-DD HH:mm:ss");
-                        var event_end = $.fullCalendar.formatDate(event_end, "Y-MM-DD HH:mm:ss");
-                        $.ajax({
-                            url: SITEURL + "/calendar-crud-ajax",
-                            data: {
-                                title: event_name,
-                                start: event_start,
-                                end: event_end,
-                                type: 'create'
-                            },
-                            type: "POST",
-                            success: function(data) {
-                                displayMessage("Atividade criada!");
-                                calendar.fullCalendar('renderEvent', {
-                                    id: data.id,
-                                    title: event_name,
-                                    start: event_start,
-                                    end: event_end,
-                                    backgroundColor: '#ffff0085',
-                                    textColor: 'black',
-                                    allDay: allDay
-                                }, true);
-                                calendar.fullCalendar('unselect');
-                            }
-                        });
-                    }
-                },
+               
                 eventDrop: function(event, delta) {
                     console.log(delta)
                     var event_start = $.fullCalendar.formatDate(event.start, "Y-MM-DD");
@@ -142,21 +114,24 @@
 
 
                 eventClick: function(event) {
-                    var eventDelete = confirm("Nome: " + event.title)
-                    if (eventDelete) {
-                        $.ajax({
-                            type: "POST",
-                            url: SITEURL + '/calendar-crud-ajax',
-                            data: {
-                                id: event.id,
-                                type: 'delete'
-                            },
-                            success: function(response) {
-                                calendar.fullCalendar('removeEvents', event.id);
-                                displayMessage("Evento excluido com sucesso!");
-                            }
-                        });
+                    
+                    var event_start = $.fullCalendar.formatDate(event.start, " DD/MM/Y HH:mm:ss");
+                    var event_end;
+
+                    if(event.end == null){
+                        event_end = event_start                        
+                    }else{
+                        event_end = $.fullCalendar.formatDate(event.end, " DD/MM/Y HH:mm:ss");
                     }
+
+                    document.getElementById('h6Nome').innerHTML = "Nome - " + event.title;
+                    document.getElementById('h6Descri').innerHTML = "Descrição - " + event.descricao;
+                    document.getElementById('h6Dataini').innerHTML = "Data Inicial - " + event_start;
+                    document.getElementById('h6Datafin').innerHTML = "Data Final - " + event_end;
+
+                    document.getElementById('mostraAtividade').style.display="block";
+
+                    document.getElementById('Excluir').dataset.id = event.id;
                 }
 
             });
@@ -174,7 +149,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
 
     <!-- Link com script.js -->
-    <script src="{{ asset('js/script.js') }}"></script>
+    <script src="{{ asset('js/home.js') }}"></script>
 </body>
 
 </html>
