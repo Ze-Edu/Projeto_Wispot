@@ -18,10 +18,10 @@
 
 
     <div class="container form-control border-dark mx-1000 mt-5 mb-5">
-        <h1 class="alert alert-secondary text-center">Agenda de Atividades Esportivas</h1>
+        <h1 class="alert alert-secondary text-center border-dark" style="color: #000;">Agenda de Atividades Esportivas</h1>
 
         <!-- Inicio calendario -->
-        <div class="container border border-secondary rounded-3">
+        <div class="container border border-dark rounded-3">
             <div id="descriweb">
                 <h5>descrição</h5>
                 <div class="d-flex flex-row mb-2">
@@ -36,9 +36,9 @@
         </div>
         <br>
         <!-- Mostra atividade -->
-        <div class="container border border-secondary rounded-3 text-center alert alert-light " id="mostraAtividade" style="display: none;width: 700px">
+        <div class="container border border-info rounded-3 text-center alert alert-light " id="mostraAtividade" style="display: none;width: 700px">
             <div id="descriweb">
-                <h2 class="alert alert-info3 text-center">Atividade esportiva</h2>
+                <h2 class="alert alert-info text-center">Atividade esportiva</h2>
                 <div><h6 id="h6Nome">Nome: </h6></div>
                 <div><h6 id="h6Descri">Descrição: </h6></div>
                 <div><h6 id="h6Dataini">Data-inicio:</h6></div>
