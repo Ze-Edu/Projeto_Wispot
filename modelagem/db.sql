@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 16-Out-2022 às 22:51
+-- Tempo de geração: 23-Out-2022 às 05:46
 -- Versão do servidor: 10.4.25-MariaDB
 -- versão do PHP: 8.1.10
 
@@ -35,15 +35,17 @@ CREATE TABLE `crud_events` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `backgroundColor` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '#ffff0085',
-  `textColor` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Black'
+  `textColor` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Black',
+  `descricao` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Extraindo dados da tabela `crud_events`
 --
 
-INSERT INTO `crud_events` (`id`, `title`, `start`, `end`, `created_at`, `updated_at`, `backgroundColor`, `textColor`) VALUES
-(12, 'addd', '2022-10-17 00:00:00', '2022-10-18 00:00:00', '2022-10-16 22:06:16', '2022-10-16 22:06:16', '#ffff0085', 'Black');
+INSERT INTO `crud_events` (`id`, `title`, `start`, `end`, `created_at`, `updated_at`, `backgroundColor`, `textColor`, `descricao`) VALUES
+(42, 'Esteira', '2022-10-24 10:00:00', '2022-10-28 10:00:00', '2022-10-23 06:43:23', '2022-10-23 06:43:23', '#ffff0085', 'Black', 'Fazer esteira 5 dias, 30 minutos.'),
+(43, 'Levantar peso', '2022-10-31 13:00:00', '2022-10-31 13:30:00', '2022-10-23 06:45:00', '2022-10-23 06:45:00', '#ffff0085', 'Black', 'Levantar até 20kg, 30 min (Pausadamente).');
 
 -- --------------------------------------------------------
 
@@ -183,7 +185,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de tabela `crud_events`
 --
 ALTER TABLE `crud_events`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT de tabela `failed_jobs`
