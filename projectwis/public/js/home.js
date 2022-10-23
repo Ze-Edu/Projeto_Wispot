@@ -11,4 +11,10 @@ btnExcluir.addEventListener('click', ()=>{
      
    })
    window.location.href = "/"
+})  
+
+var btnFechar = document.getElementById('Fechar');
+
+btnFechar.addEventListener('click', ()=>{
+  window.location.href = "/"
 })

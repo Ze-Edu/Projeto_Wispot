@@ -44,7 +44,8 @@
                 <div><h6 id="h6Dataini">Data-inicio:</h6></div>
                 <div><h6 id="h6Datafin">Data-final:</h6></div>
                 
-                <div><button id="Excluir" data-id class="btn btn-outline-danger p-2 mt-1">Apagar atividade</button></div>
+                <div><button id="Excluir" data-id class="btn btn-outline-danger p-2 mt-1">Apagar atividade</button>
+                <button id="Fechar" data-id class="btn btn-outline-secondary p-2 mt-1">Fechar</button></div>
                 <br>
             </div>
         </div>
